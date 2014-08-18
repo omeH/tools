@@ -4,7 +4,7 @@ import types
 
 
 def status(module):
-    print('reloading' + module.__name__)
+    print('reloading: ' + module.__name__)
 
 
 def transitive_realod(module, visited):

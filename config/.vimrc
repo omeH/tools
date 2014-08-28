@@ -192,9 +192,10 @@ let g:jedi#popup_select_first = 0
 "=====================================================
 " ConqueTerm
 " запуск интерпретатора на F5
-nnoremap <F5> :ConqueTermSplit ipython<CR>
+autocmd FileType python nnoremap <F5> :ConqueTermSplit bash<CR> 
 " а debug-mode на <F6>
 nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
+let g:CouqueTerm_Color = 0
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 " проверка кода в соответствии с PEP8 через <leader>8
@@ -220,6 +221,9 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
 \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd FileType python inoremap #m if __name__ == '__main__':<CR>main()
+autocmd FileType python inoremap #di def __init__(self)<Left>
+autocmd FileType python inoremap #ds def __str__(self)<Left>
+autocmd FileType python inoremap #dc def __call__(self)<Left>
 autocmd FileType python inoremap ' ''<Left>
 autocmd FileType python inoremap " ""<Left>
 autocmd FileType python inoremap ( ()<Left>

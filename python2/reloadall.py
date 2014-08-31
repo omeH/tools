@@ -1,4 +1,7 @@
 """Transitive restart nested modules
+------------------------------------------------------
+Learning Python, Fourth Edition, by Mark Lutz.
+Copyright 2009 O'Reilly Media, Inc., 978-0-596-15806-4
 """
 import types
 

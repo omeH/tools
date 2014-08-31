@@ -41,6 +41,7 @@ filetype plugin indent on
 "=====================================================
 " General settings
 "=====================================================
+let mapleader=","
 set backspace=indent,eol,start
 aunmenu Help.
 aunmenu Window.
@@ -83,8 +84,8 @@ tab sball
 set switchbuf=useopen
 
 " отключаем пищалку и мигание
-set visualbell t_vb= 
-set novisualbell       
+set visualbell t_vb=
+set novisualbell
 
 set enc=utf-8	     " utf-8 по дефолту в файлах
 set ls=2             " всегда показываем статусбар
@@ -116,8 +117,10 @@ augroup vimrc_autocmds
     autocmd FileType ruby,python,javascript,c,cpp set nowrap
 augroup END
 
-" указываем каталог с настройками SnipMate
-let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+" Настройки SnipMate и vim-snippets
+let g:snips_author="oneH"
+let g:snips_github="https://github.com/omeH"
+" let g:snippets_dir = "~/.vim/bundle/vim-snippets/snippets"
 
 " настройки Vim-Airline
 set laststatus=2
@@ -129,7 +132,7 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_linecolumn_prefix = '¶ '
 let g:airline_fugitive_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ' 
+let g:airline_paste_symbol = 'ρ'
 
 " TagBar настройки
 map <F4> :TagbarToggle<CR>
@@ -139,7 +142,7 @@ let g:tagbar_autofocus = 0 " автофокус на Tagbar при открыт�
 " показать NERDTree на F3
 map <F3> :NERDTreeToggle<CR>
 "игноррируемые файлы с расширениями
-let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']  
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o$']
 
 " TaskList настройки
 map <F2> :TaskList<CR> 	   " отобразить список тасков на F2
@@ -192,9 +195,9 @@ let g:jedi#popup_select_first = 0
 "=====================================================
 " ConqueTerm
 " запуск интерпретатора на F5
-autocmd FileType python nnoremap <F5> :ConqueTermSplit bash<CR> 
+autocmd FileType python nnoremap <F5> :ConqueTermSplit bash<CR>
 " а debug-mode на <F6>
-nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
+autocmd FileType python nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
 let g:CouqueTerm_Color = 0
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
@@ -210,6 +213,7 @@ nnoremap <leader>Tp :set ft=python<CR>
 nnoremap <leader>Tj :set ft=javascript<CR>
 nnoremap <leader>Tc :set ft=css<CR>
 nnoremap <leader>Td :set ft=django<CR>
+nnoremap <leader>Tv :set ft=vim<CR>
 
 "=====================================================
 " Languages support
@@ -220,16 +224,9 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8
 \ formatoptions+=croq softtabstop=4 smartindent
 \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd FileType python inoremap #m if __name__ == '__main__':<CR>main()
-autocmd FileType python inoremap #di def __init__(self)<Left>
-autocmd FileType python inoremap #ds def __str__(self)<Left>
-autocmd FileType python inoremap #dc def __call__(self)<Left>
-autocmd FileType python inoremap ' ''<Left>
-autocmd FileType python inoremap " ""<Left>
 autocmd FileType python inoremap ( ()<Left>
 autocmd FileType python inoremap [ []<Left>
 autocmd FileType python inoremap { {}<Left>
-autocmd FileType python inoremap #" """<CR>"""<Esc>ki<Right><CR>
 
 " --- JavaScript ---
 let javascript_enable_domhtmlcss=1

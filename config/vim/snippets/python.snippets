@@ -1,0 +1,38 @@
+# if main
+snippet #f
+	if __name__ == '__main__':
+		main()
+snippet #fd
+	if __name__ == '__main__':
+		import doctest
+		doctest.testmod()
+# doc
+snippet #"
+	"""
+	>>> ${0:test}
+	"""
+snippet docs mydocs
+	"""
+	File: ${1:`vim_snippets#Filename('$1.py', 'foo.py')`}
+	Author: `g:snips_author`
+	Github: `g:snips_github`
+	Description: ${0}
+	"""
+# string
+snippet " "string"
+	"${0:text}"
+snippet ' 'string'
+	'${0:text}'
+# New Method
+snippet #i
+	def __init__(self):
+		${0}
+snippet #ia
+	def __init__(self, #{1:arg}):
+		${0}
+snippet #s
+	def __str__(self):
+		return ${1:str}.format(${2:param})
+snippet #d
+	def ${1:name_}(self, ${2:arg}):
+		${0}
